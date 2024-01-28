@@ -83,7 +83,16 @@ import { defineConfig } from '@eddeee888/gcg-typescript-resolver-files'
 const config: CodegenConfig = {
   schema: '**/schema.graphql',
   generates: {
-    'src/schema': defineConfig()
+    'src/schema': defineConfig({
+      typesPluginsConfig: {
+        /* Use this if you want resolver chains in Apollo. See more: https://the-guild.dev/graphql/codegen/plugins/typescript/typescript-resolvers#integration-with-apollo-server
+        
+        useIndexSignature: true,
+        defaultMapper: 'Partial<{T}>'
+
+        */
+      }
+    })
   }
 }
 export default config
